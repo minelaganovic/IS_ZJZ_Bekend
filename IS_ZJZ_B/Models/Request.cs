@@ -9,5 +9,6 @@ namespace IS_ZJZ_B.Models
         public int userid{ get; set; }
         public string document { get; set; }
         public int type_id { get; set; }
+        public string status { get; set; }
     }
 }

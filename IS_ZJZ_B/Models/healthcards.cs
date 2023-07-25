@@ -9,5 +9,6 @@ namespace IS_ZJZ_B.Models
         public string lbo { get; set; }
         public string date_verification_hc { get; set; }
         public string date_expiration_hc { get; set; }
+        public int id_user { get; set; }
     }
 }
