@@ -26,7 +26,7 @@ namespace IS_ZJZ_B.Controllers
             {
                 return BadRequest();
             }
-            reqObj.status = "poslato";
+            //reqObj.status = "poslato";
             await _authContext.Requests.AddAsync(reqObj);
             await _authContext.SaveChangesAsync();
             return Ok(new
