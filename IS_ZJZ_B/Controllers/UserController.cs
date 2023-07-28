@@ -135,26 +135,6 @@ namespace IS_ZJZ_B.Controllers
             });
         }
 
-       /* [HttpPost("registera")]
-
-        public async Task<IActionResult> RegisterAdmin([FromBody] Admin userObj)
-        {
-            if (userObj == null)
-                return BadRequest();
-          
-
-            userObj.pwd = PasswordHasher.HashPassword(userObj.pwd);
-            userObj.Role = "admin";
-            userObj.Token = "";
-            // if(string.IsNullOrEmpty(userObj.email))
-            await _authContext.Admin.AddAsync(userObj);
-            await _authContext.SaveChangesAsync();
-            return Ok(new
-            {
-                Message = "Uspešno ste se registrovali!"
-            });
-        }
-       */
         private Task<bool> CheckEmailExistAsync( string email) 
             =>_authContext.Users.AnyAsync(x => x.email == email);
         private Task<bool> CheckJmbgExistAsync(string jmbg)

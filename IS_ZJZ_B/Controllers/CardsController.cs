@@ -29,5 +29,24 @@ namespace IS_ZJZ_B.Controllers
                 return Ok(card);
             }
         }
+        [HttpPost]
+        public async Task<ActionResult<healthcards>> PostHCEmployees(healthcards hc)
+        {
+            Random random = new Random();
+            string r = "";
+            int i;
+            for (i = 1; i < 12; i++)
+            {
+                r += random.Next(0, 9).ToString();
+            }
+            hc.lbo = r;
+            _authContext.Healthcards.Add(hc);
+            await _authContext.SaveChangesAsync();
+
+            return Ok(new
+            {
+                Message = "Uspešno ste poslali zahtev!"
+            });
+        }
     }
 }
