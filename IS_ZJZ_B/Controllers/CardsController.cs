@@ -4,6 +4,9 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Net.Mail;
+using System.Net;
+using System.Text;
 
 namespace IS_ZJZ_B.Controllers
 {
@@ -16,6 +19,13 @@ namespace IS_ZJZ_B.Controllers
         {
             _authContext = appDbContext;
         }
+        
+        [HttpGet("getall")]
+        public async Task<IEnumerable<healthcards>> GetAllCards()
+        {
+            return await _authContext.Healthcards.ToListAsync();
+        }
+
         [HttpGet("{id}")]
         public async Task<ActionResult<healthcards>> GetInfoHC(int id)
         {
@@ -47,6 +57,24 @@ namespace IS_ZJZ_B.Controllers
             {
                 Message = "Uspešno ste poslali zahtev!"
             });
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutUsers(int id, healthcards hc)
+        {
+            var hlc = await _authContext.Healthcards.FindAsync(id);
+
+            if (hlc == null)
+            {
+                return NotFound();
+            }
+
+            hlc.date_expiration_hc = hc.date_expiration_hc;
+            hlc.date_verification_hc = hc.date_verification_hc;
+
+            await _authContext.SaveChangesAsync();
+
+            return Ok(hlc);
         }
     }
 }

@@ -20,7 +20,6 @@ namespace IS_ZJZ_B.Controllers
             _authContext = appDbContext;
         }
 
-
         [Authorize]
         [HttpGet]
         public async Task<IEnumerable<Request>> GetRequests()
