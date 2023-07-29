@@ -77,6 +77,37 @@ namespace IS_ZJZ_B.Migrations
                     b.ToTable("administrativeworkers", (string)null);
                 });
 
+            modelBuilder.Entity("IS_ZJZ_B.Models.GCard", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
+
+                    b.Property<string>("disease_code")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("id_hc")
+                        .HasColumnType("int");
+
+                    b.Property<int>("id_te")
+                        .HasColumnType("int");
+
+                    b.Property<string>("mode_of_transportation")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("place_of_departure")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("status")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("gcard", (string)null);
+                });
+
             modelBuilder.Entity("IS_ZJZ_B.Models.HealthCenterEmployee", b =>
                 {
                     b.Property<int>("Id_hce")
@@ -135,6 +166,28 @@ namespace IS_ZJZ_B.Migrations
                     b.HasKey("id");
 
                     b.ToTable("requesttype", (string)null);
+                });
+
+            modelBuilder.Entity("IS_ZJZ_B.Models.TravelExpense", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
+
+                    b.Property<int>("cost_price")
+                        .HasColumnType("int");
+
+                    b.Property<string>("date")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("status")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("texpensess", (string)null);
                 });
 
             modelBuilder.Entity("IS_ZJZ_B.Models.User", b =>
