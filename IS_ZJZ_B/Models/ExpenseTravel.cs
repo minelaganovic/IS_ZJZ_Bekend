@@ -2,7 +2,7 @@
 
 namespace IS_ZJZ_B.Models
 {
-    public class TravelExpense
+    public class ExpenseTravel
     {
         [Key]
         public int id { get; set; }

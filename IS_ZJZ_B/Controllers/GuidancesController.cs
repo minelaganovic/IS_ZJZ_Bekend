@@ -8,25 +8,25 @@ namespace IS_ZJZ_B.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-
-    public class GCardsController : ControllerBase
+    public class GuidancesController : ControllerBase
     {
+
         private readonly AppDbContext _authDbContext;
-        public GCardsController(AppDbContext gcardsDbContext)
+        public GuidancesController(AppDbContext gcardsDbContext)
         {
             _authDbContext = gcardsDbContext;
         }
 
         [HttpGet("getall")]
-        public async Task<IEnumerable<GCard>> GetHCEmployees()
+        public async Task<IEnumerable<Guidance>> GetHCEmployees()
         {
-            return await _authDbContext.gCards.ToListAsync();
+            return await _authDbContext.guidances.ToListAsync();
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<GCard>> GetHCEmployes(int id)
+        public async Task<ActionResult<Guidance>> GetHCEmployes(int id)
         {
-            var gc = await _authDbContext.gCards.FindAsync(id);
+            var gc = await _authDbContext.guidances.FindAsync(id);
 
             if (gc == null)
             {

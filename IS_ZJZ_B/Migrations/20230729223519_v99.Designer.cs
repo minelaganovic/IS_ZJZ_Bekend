@@ -3,6 +3,7 @@ using IS_ZJZ_B.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IS_ZJZ_B.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230729223519_v99")]
+    partial class v99
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -75,28 +78,6 @@ namespace IS_ZJZ_B.Migrations
                     b.HasKey("id");
 
                     b.ToTable("administrativeworkers", (string)null);
-                });
-
-            modelBuilder.Entity("IS_ZJZ_B.Models.ExpenseTravel", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
-
-                    b.Property<int>("cost_price")
-                        .HasColumnType("int");
-
-                    b.Property<string>("date")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("status")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("id");
-
-                    b.ToTable("expensess", (string)null);
                 });
 
             modelBuilder.Entity("IS_ZJZ_B.Models.Guidance", b =>
@@ -188,6 +169,28 @@ namespace IS_ZJZ_B.Migrations
                     b.HasKey("id");
 
                     b.ToTable("requesttype", (string)null);
+                });
+
+            modelBuilder.Entity("IS_ZJZ_B.Models.TravelExpense", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
+
+                    b.Property<int>("cost_price")
+                        .HasColumnType("int");
+
+                    b.Property<string>("date")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("status")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("texpensess", (string)null);
                 });
 
             modelBuilder.Entity("IS_ZJZ_B.Models.User", b =>

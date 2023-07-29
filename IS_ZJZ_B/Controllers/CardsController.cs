@@ -29,7 +29,7 @@ namespace IS_ZJZ_B.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<healthcards>> GetInfoHC(int id)
         {
-            var card = await _authContext.Healthcards.Where(x => x.id_user == id).FirstOrDefaultAsync();
+            var card = await _authContext.Healthcards.Where(x => x.user_id == id).FirstOrDefaultAsync();
             if (card == null)
             {
                 return NotFound();

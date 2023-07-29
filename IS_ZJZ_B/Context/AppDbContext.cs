@@ -16,8 +16,8 @@ namespace IS_ZJZ_B.Context
         public DbSet<Admin> Admin { get; set; }
         public DbSet<Request> Requests { get; set; }
         public DbSet<RequestType> RequestTypes { get; set; }
-        public DbSet<GCard> gCards { get; set; }
-        public DbSet<TravelExpense>travelExpenses { get; set; }
+        public DbSet<Guidance> guidances { get; set; }
+        public DbSet<ExpenseTravel>travelExpenses { get; set; }
 
         //ADMINISTRATOR
         public DbSet<HealthCenterEmployee> HealthCenterEmployees { get; set; }
@@ -38,10 +38,8 @@ namespace IS_ZJZ_B.Context
             modelBuilder.Entity<RequestType>().ToTable("requesttype");
 
             //Administrativni radnik
-            modelBuilder.Entity<GCard>().ToTable("gcard");
-            modelBuilder.Entity<TravelExpense>().ToTable("texpensess");
-
-
+            modelBuilder.Entity<Guidance>().ToTable("gcard");
+            modelBuilder.Entity<ExpenseTravel>().ToTable("expensess");
 
         }
     }
