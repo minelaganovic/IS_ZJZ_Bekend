@@ -24,9 +24,10 @@ namespace IS_ZJZ_B.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Guidance>> GetHCEmployes(int id)
+        public async Task<ActionResult<Guidance>> GetGuidance(int id)
         {
-            var gc = await _authDbContext.guidances.FindAsync(id);
+            var gc = await _authDbContext.guidances.Where(x => x.user_id == id).FirstOrDefaultAsync();
+
 
             if (gc == null)
             {

@@ -21,5 +21,18 @@ namespace IS_ZJZ_B.Controllers
             {
                 return await _authDbContext.travelExpenses.ToListAsync();
             }
+            [HttpGet("id")]
+            public async Task<ActionResult<ExpenseTravel>> GetInfoTE(int id)
+            {
+            var tid = await _authDbContext.travelExpenses.FindAsync(id);
+            if (tid == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                return Ok(tid);
+            }
         }
+    }
     }
