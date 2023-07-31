@@ -17,22 +17,9 @@ namespace IS_ZJZ_B.Controllers
             }
 
             [HttpGet("getall")]
-            public async Task<IEnumerable<ExpenseTravel>> GetHCEmployees()
+            public async Task<IEnumerable<ExpenseTravel>> GetTExpenses()
             {
                 return await _authDbContext.travelExpenses.ToListAsync();
-            }
-
-            [HttpGet("{id}")]
-            public async Task<ActionResult<ExpenseTravel>> GetHCEmployes(int id)
-            {
-                var te = await _authDbContext.travelExpenses.FindAsync(id);
-
-                if (te == null)
-                {
-                    return NotFound();
-                }
-
-                return te;
             }
         }
     }

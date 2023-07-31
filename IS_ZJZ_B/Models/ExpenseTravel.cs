@@ -6,8 +6,7 @@ namespace IS_ZJZ_B.Models
     {
         [Key]
         public int id { get; set; }
-        public string date { get; set; }
         public int cost_price { get; set; }
-        public string status { get; set; }
+        public string path { get; set; }
     }
 }

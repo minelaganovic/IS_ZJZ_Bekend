@@ -35,5 +35,18 @@ namespace IS_ZJZ_B.Controllers
 
             return gc;
         }
+        [HttpPost("savenewg")]
+        public async Task<ActionResult<Guidance>> PostHCEmployees(Guidance gd)
+        {
+            
+            gd.status = "overen";
+            _authDbContext.guidances.Add(gd);
+            await _authDbContext.SaveChangesAsync();
+
+            return Ok(new
+            {
+                Message = "Uspešno ste sacuvali zahtev!"
+            });
+        }
     }
 }
