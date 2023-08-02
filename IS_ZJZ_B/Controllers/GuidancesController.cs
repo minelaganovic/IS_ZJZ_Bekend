@@ -26,15 +26,15 @@ namespace IS_ZJZ_B.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Guidance>> GetGuidance(int id)
         {
-            var gc = await _authDbContext.guidances.Where(x => x.user_id == id).FirstOrDefaultAsync();
+            var gc = await _authDbContext.guidances.Where(x => x.user_id == id).ToListAsync();
 
 
-            if (gc == null)
+            if (gc == null || gc.Count == 0)
             {
                 return NotFound();
             }
 
-            return gc;
+            return Ok(gc);
         }
         [HttpPost("savenewg")]
         public async Task<ActionResult<Guidance>> PostHCEmployees(Guidance gd)
